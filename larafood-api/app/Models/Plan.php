@@ -19,4 +19,10 @@ class Plan extends Model
         
     return $results;
   }
+
+  // relacionamento um para muitos
+  public function details()
+  {
+    return $this->hasMany(DetailPlan::class);
+  }
 }

@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('admin')->group(function() {
+  
+  //detalhes de um plano
+  Route::get('/plans/{url}/details', [\App\Http\Controllers\Admin\DetailPlanController::class,'index'])->name('details.plan.index');
+  Route::post('/plans/{url}/details', [\App\Http\Controllers\Admin\DetailPlanController::class,'store'])->name('details.plan.store');
+  Route::get('/plans/{url}/details/create', [\App\Http\Controllers\Admin\DetailPlanController::class,'create'])->name('details.plan.create');
+
   // listar todos os planos
   Route::get('/plans', [\App\Http\Controllers\Admin\PlanController::class,'index'])->name('plans.index');
 
@@ -32,6 +38,7 @@ Route::prefix('admin')->group(function() {
   // buscar um plano
   Route::any('/plans/search', [\App\Http\Controllers\Admin\PlanController::class,'search'])->name('plans.search');
 
+  // home
   Route::get('/', [\App\Http\Controllers\Admin\PlanController::class,'index'])->name('admin.index');
 });
 
