@@ -19,6 +19,10 @@ Route::prefix('admin')->group(function() {
   Route::get('/plans/{url}/details', [\App\Http\Controllers\Admin\DetailPlanController::class,'index'])->name('details.plan.index');
   Route::post('/plans/{url}/details', [\App\Http\Controllers\Admin\DetailPlanController::class,'store'])->name('details.plan.store');
   Route::get('/plans/{url}/details/create', [\App\Http\Controllers\Admin\DetailPlanController::class,'create'])->name('details.plan.create');
+  Route::get('/plans/{url}/details/{idDetail}/edit', [\App\Http\Controllers\Admin\DetailPlanController::class,'edit'])->name('details.plan.edit');
+  Route::put('/plans/{url}/details/{idDetail}', [\App\Http\Controllers\Admin\DetailPlanController::class,'update'])->name('details.plan.update');
+  Route::get('/plans/{url}/details/{idDetail}', [\App\Http\Controllers\Admin\DetailPlanController::class,'show'])->name('details.plan.show');
+  Route::delete('/plans/{url}/details/{idDetail}', [\App\Http\Controllers\Admin\DetailPlanController::class,'destroy'])->name('details.plan.destroy');
 
   // listar todos os planos
   Route::get('/plans', [\App\Http\Controllers\Admin\PlanController::class,'index'])->name('plans.index');
