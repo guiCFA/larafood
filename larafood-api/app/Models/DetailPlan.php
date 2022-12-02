@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class DetailPlan extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $table = 'details_plan';
-    protected $fillable = ['name'];
+  protected $table = 'details_plan';
+  protected $fillable = ['name'];
 
-    // muitos para um
-    public function plan()
-    {
-        return $this->belongsTo(Plan::class);
-    }
+  // muitos para um
+  public function plan()
+  {
+    return $this->belongsTo(Plan::class);
+  }
 }

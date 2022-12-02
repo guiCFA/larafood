@@ -12,8 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\Admin\ACL\ProfileController;
 
 Route::prefix('admin')->group(function() {
+
+  //Rotas de Perfil
+  Route::resource('/profiles', \App\Http\Controllers\Admin\ACL\ProfileController::class);
   
   //detalhes de um plano
   Route::get('/plans/{url}/details', [\App\Http\Controllers\Admin\DetailPlanController::class,'index'])->name('details.plan.index');
