@@ -9,7 +9,7 @@ class DetailPlan extends Model
 {
   use HasFactory;
 
-  protected $table = 'details_plan';
+  protected $table    = 'details_plan';
   protected $fillable = ['name'];
 
   // muitos para um

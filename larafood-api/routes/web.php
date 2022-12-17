@@ -12,11 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\Admin\ACL\ProfileController;
 
 Route::prefix('admin')->group(function() {
 
+  //Rotas de Permissão
+  Route::any('/permissions/search', [\App\Http\Controllers\Admin\ACL\PermissionController::class,'search'])->name('permissions.search');
+  Route::resource('/permissions', \App\Http\Controllers\Admin\ACL\PermissionController::class);
+
   //Rotas de Perfil
+  Route::any('/profiles/search', [\App\Http\Controllers\Admin\ACL\ProfileController::class,'search'])->name('profiles.search');
   Route::resource('/profiles', \App\Http\Controllers\Admin\ACL\ProfileController::class);
   
   //detalhes de um plano

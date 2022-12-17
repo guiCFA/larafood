@@ -14,9 +14,9 @@
 @section('content')
   <div class="card">
     <div class="card-header">
-      <form action="{{ route('plans.search') }}" method="POST" class="form form-inline">
+      <form action="{{ route('profiles.search') }}" method="POST" class="form form-inline">
         @csrf
-        <input type="text" name="filter" placeholder="nome" class="form-control" value="{{ $filters['filter'] ?? '' }}">
+        <input type="text" name="filter" placeholder="Filtro" class="form-control" value="{{ $filters['filter'] ?? '' }}">
         <button type="submit" class="btn btn-dark">Filtrar</button>
       </form>
     </div>
@@ -34,11 +34,7 @@
               <td>
                 {{ $profile->name }}
               </td>
-              <td>
-                R$ {{ number_format($profile->price, 2, ',', '.') }}
-              </td>
               <td style="width:250px">
-                {{-- <a href="{{ route('details.profile.index', $profile->url) }}" class="btn btn-primary">Detalhes</a> --}}
                 <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-info">Edit</a>
                 <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-warning">VER</a>
               </td>
