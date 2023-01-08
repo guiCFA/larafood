@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('admin')->group(function() {
+Route::prefix('admin')->middleware('auth')->group(function() {
 
   //Rotas de Permissão
   Route::any('/permissions/search', [\App\Http\Controllers\Admin\ACL\PermissionController::class,'search'])->name('permissions.search');
@@ -54,6 +54,6 @@ Route::prefix('admin')->group(function() {
   Route::get('/', [\App\Http\Controllers\Admin\PlanController::class,'index'])->name('admin.index');
 });
 
-Route::get('/', function () {
-  return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\Site\SiteController::class,'index'])->name('site.home');
+
+require __DIR__.'/auth.php';

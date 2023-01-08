@@ -34,9 +34,11 @@
               <td>
                 {{ $profile->name }}
               </td>
-              <td style="width:250px">
+              <td style="width:270px">
                 <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-info">Edit</a>
                 <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-warning">VER</a>
+                <a href="{{ route('profiles.permissions', $profile->id) }}" class="btn btn-warning"> <i class="fa fa-lock"></i> </a>
+                <a href="{{ route('profiles.plans', $profile->id) }}" class="btn btn-info"> <i class="fa fa-lock"></i> </a>
               </td>
             </tr>
           @endforeach

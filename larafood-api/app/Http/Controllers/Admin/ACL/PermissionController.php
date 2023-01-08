@@ -121,7 +121,7 @@ class PermissionController extends Controller
    */
   public function search(Request $request)
   {
-		$filters  = $request->only('filter'); 
+		$filters = $request->only('filter'); 
 
     $permissions = $this->repository->where(function($query) use ($request) {
 																		if($request->filter) {
